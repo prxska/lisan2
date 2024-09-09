@@ -1,0 +1,17 @@
+.center-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+  
+  ion-card {
+    width: 100%;
+    max-width: 400px; // Ajusta este valor según tus necesidades
+  }
+  
+  @media (min-width: 768px) {
+    ion-card {
+      width: 50%;
+    }
+  }

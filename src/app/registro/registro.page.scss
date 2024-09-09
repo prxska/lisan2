@@ -1,0 +1,39 @@
+body {
+    /* Para navegadores basados en WebKit (Chrome, Safari, etc.) */
+    ::-webkit-scrollbar {
+      display: none;
+    }
+    
+    /* Para Firefox */
+    scrollbar-width: none;
+    
+    /* Para IE y Edge */
+    -ms-overflow-style: none;
+  }
+.center-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    --overflow: hidden;
+  }
+  
+  ion-content.center-content::part(scroll) {
+    display: block; 
+    overflow-y: hidden;
+  }
+
+  ion-card {
+    width: 100%;
+    max-width: 400px; // Ajusta este valor según tus necesidades
+  }
+  
+  @media (min-width: 768px) {
+    ion-card {
+      width: 50%;
+    }
+  }
+
+ion-header {
+    padding-top: 10px;
+}
