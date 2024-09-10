@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { BookProgressService } from '../book-progress.service'; // Asegúrate de que la ruta sea correcta
 
 @Component({
   selector: 'app-inicio',
@@ -7,11 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InicioPage implements OnInit {
   nombreUsuario: string = '';
+  books: any[] = [];
 
-  constructor() { }
+  constructor(private bookProgressService: BookProgressService) {}
 
   ngOnInit() {
     this.obtenerNombreUsuario();
+    this.obtenerLibros();
   }
 
   obtenerNombreUsuario() {
@@ -25,5 +28,12 @@ export class InicioPage implements OnInit {
       }
     }
   }
-}
 
+  obtenerLibros() {
+    this.books = this.bookProgressService.getProgress();
+    this.books.forEach(book => {
+      book.percentage = book.totalPages > 0 ? (book.pagesRead / book.totalPages) * 100 : 0;
+    });
+    console.log('Libros obtenidos:', this.books); // Para depuración
+  }
+}

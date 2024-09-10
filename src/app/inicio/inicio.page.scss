@@ -1,0 +1,30 @@
+.progress-bar {
+    width: 100%;
+    background-color: #e0e0e0; /* Color de fondo de la barra vacía */
+    border-radius: 8px;
+    overflow: hidden; /* Para evitar que el contenido de la barra desborde los bordes */
+  }
+  
+  .progress {
+    height: 20px; /* Altura de la barra de progreso */
+    background-color: #3f64b3; /* Color de la barra de progreso */
+    border-radius: 8px 0 0 8px; /* Bordes redondeados solo en el lado izquierdo */
+    transition: width 0.5s ease-in-out; /* Transición suave de la anchura */
+    width: 0; /* Empieza desde 0, y el ancho se establecerá dinámicamente */
+  }
+  
+  .center-button {
+    padding-top: 50px;
+    display: flex;
+    justify-content: center; /* Centra el contenido horizontalmente */
+    align-items: center;     /* Centra el contenido verticalmente */
+    height: 100%; 
+  }
+
+  .bars {
+    
+    justify-content: center; /* Centra el contenido horizontalmente */
+    align-items: center;     /* Centra el contenido verticalmente */
+
+
+  }

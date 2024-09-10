@@ -1,10 +1,6 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>Inicio</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content [fullscreen]="true" class="ion-padding">
+  <!-- ... otros elementos ... -->
+
   <ion-header collapse="condense">
     <ion-toolbar>
       <ion-title size="large">Lisan Libros</ion-title>
@@ -13,9 +9,37 @@
 
   <div *ngIf="nombreUsuario">
     <h2>Hola {{ nombreUsuario }}, es bueno verte</h2>
-  </div>
 
-  <!-- Aquí puedes agregar más contenido para tu página de inicio -->
-</ion-content>
+    <!-- Botón para agregar libro -->
+    <div class="center-button">
+      <ion-button [routerLink]="['/bookprogress']" fill="solid" color="primary">
+        <ion-icon name="add"></ion-icon>
+      </ion-button>
+    </div>
 
+    <!-- Aquí puedes agregar más contenido para tu página de inicio -->
+    <div class="bars">
+      <ion-card>
+        <ion-card-header>
+          <div *ngIf="books.length > 0">
+            <div *ngFor="let book of books">
+              <h3>Libro: {{ book.bookTitle }}</h3>
+              <p>Progreso: {{ book.percentage | number: '1.0-2' }}%</p>
+              <div class="progress-bar">
+                <div
+                  class="progress"
+                  [style.width]="book.percentage + '%'"
+                ></div>
+              </div>
+            </div>
+          </div>
+        </ion-card-header>
+      </ion-card>
+    </div>
+    <div *ngIf="books.length === 0">
+      <p>No hay libros registrados aún.</p>
+    </div>
 
+    <!-- ... otros elementos ... -->
+  </div></ion-content
+>
