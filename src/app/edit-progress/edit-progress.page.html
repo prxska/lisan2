@@ -1,9 +1,9 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>Edit Progress</ion-title>
-  </ion-toolbar>
+<ion-header>
+  <ion-buttons slot="start">
+    <ion-back-button></ion-back-button>
+  </ion-buttons>
+    <ion-title>Agregar Progreso del Libro</ion-title>
 </ion-header>
-
 <ion-content [fullscreen]="true">
   <form [formGroup]="bookProgressForm" (ngSubmit)="onSubmit()">
     <ion-item>
