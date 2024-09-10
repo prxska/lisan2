@@ -1,18 +1,19 @@
 import { Component, OnInit } from '@angular/core';
 import { BookProgressService } from '../book-progress.service'; // Asegúrate de que la ruta sea correcta
+import { ViewWillEnter } from '@ionic/angular';
 
 @Component({
   selector: 'app-inicio',
   templateUrl: './inicio.page.html',
   styleUrls: ['./inicio.page.scss'],
 })
-export class InicioPage implements OnInit {
+export class InicioPage implements ViewWillEnter {
   nombreUsuario: string = '';
   books: any[] = [];
 
   constructor(private bookProgressService: BookProgressService) {}
 
-  ngOnInit() {
+  ionViewWillEnter() {
     this.obtenerNombreUsuario();
     this.obtenerLibros();
   }
