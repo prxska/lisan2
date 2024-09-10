@@ -1,10 +1,8 @@
 <ion-content [fullscreen]="true" class="ion-padding">
-  <!-- ... otros elementos ... -->
-
   <ion-header collapse="condense">
-
-      <ion-title size="large">Lisan Libros</ion-title>
-
+    <ion-toolbar>
+      <ion-title size="large">Tus libros</ion-title>
+    </ion-toolbar>
   </ion-header>
 
   <div *ngIf="nombreUsuario">
@@ -17,29 +15,42 @@
       </ion-button>
     </div>
 
-    <!-- Aquí puedes agregar más contenido para tu página de inicio -->
+    <!-- Listado de libros -->
     <div class="bars">
-      <ion-card>
+      <ion-card *ngIf="books.length > 0">
         <ion-card-header>
-          <div *ngIf="books.length > 0">
-            <div *ngFor="let book of books">
-              <h3>Libro: {{ book.bookTitle }}</h3>
-              <p>Progreso: {{ book.percentage | number: '1.0-2' }}%</p>
-              <div class="progress-bar">
-                <div
-                  class="progress"
-                  [style.width]="book.percentage + '%'"
-                ></div>
-              </div>
+          <div *ngFor="let book of books">
+            <h3>Libro: {{ book.bookTitle }}</h3>
+            <p>Progreso: {{ book.percentage | number: '1.0-2' }}%</p>
+            
+            <!-- Barra de progreso -->
+            <div class="progress-bar">
+              <div class="progress" [style.width]="book.percentage + '%'"></div>
             </div>
+
+            <!-- Opción de marcar como leído -->
+            <ion-item>
+              <ion-label>Leído</ion-label>
+              <ion-checkbox [(ngModel)]="book.read" (ionChange)="toggleRead(book)"></ion-checkbox>
+            </ion-item>
+
+            <!-- Botón para editar el progreso -->
+            <ion-button fill="outline" color="secondary" (click)="editarProgreso(book)">
+              Editar
+            </ion-button>
+
+            <!-- Botón para eliminar el libro -->
+            <ion-button fill="outline" color="danger" (click)="eliminarLibro(book.bookTitle)">
+              Eliminar
+            </ion-button>
           </div>
         </ion-card-header>
       </ion-card>
     </div>
+
+    <!-- Mensaje si no hay libros -->
     <div *ngIf="books.length === 0">
       <p>No hay libros registrados aún.</p>
     </div>
-
-    <!-- ... otros elementos ... -->
-  </div></ion-content
->
+  </div>
+</ion-content>

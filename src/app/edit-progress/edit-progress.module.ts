@@ -4,6 +4,8 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
+import {  ReactiveFormsModule } from '@angular/forms';
+
 import { EditProgressPageRoutingModule } from './edit-progress-routing.module';
 
 import { EditProgressPage } from './edit-progress.page';
@@ -12,6 +14,7 @@ import { EditProgressPage } from './edit-progress.page';
   imports: [
     CommonModule,
     FormsModule,
+    ReactiveFormsModule,
     IonicModule,
     EditProgressPageRoutingModule
   ],

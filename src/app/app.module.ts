@@ -16,7 +16,8 @@ import { IonicStorageModule } from '@ionic/storage-angular';
     BrowserModule,
     IonicModule.forRoot(),
     AppRoutingModule,
-    ReactiveFormsModule, // Asegúrate de incluir ReactiveFormsModule aquí
+    ReactiveFormsModule,
+    AppRoutingModule, // Asegúrate de incluir ReactiveFormsModule aquí
     IonicStorageModule.forRoot(), // Asegúrate de incluir IonicStorageModule si lo usas
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: !isDevMode(),
