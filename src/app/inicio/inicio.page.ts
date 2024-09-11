@@ -1,13 +1,13 @@
-import { Component, OnInit } from '@angular/core';
-import { BookProgressService } from '../book-progress.service'; // Asegúrate de que la ruta sea correcta
-import { Router } from '@angular/router'; // Para redirigir al formulario de edición
-import { ViewWillEnter } from '@ionic/angular';
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { BookProgressService } from '../book-progress.service';
+
 @Component({
   selector: 'app-inicio',
   templateUrl: './inicio.page.html',
   styleUrls: ['./inicio.page.scss'],
 })
-export class InicioPage implements ViewWillEnter {
+export class InicioPage {
   nombreUsuario: string = '';
   books: any[] = [];
 
@@ -35,29 +35,35 @@ export class InicioPage implements ViewWillEnter {
     this.books.forEach(book => {
       book.percentage = book.totalPages > 0 ? (book.pagesRead / book.totalPages) * 100 : 0;
     });
-    console.log('Libros obtenidos:', this.books); // Para depuración
+    console.log('Libros obtenidos:', this.books);
   }
 
-  // Función para marcar el libro como "Leído" y actualizar el progreso al 100%
   toggleRead(book: any) {
     if (book.read) {
       book.pagesRead = book.totalPages;
       book.percentage = 100;
     } else {
-      // Si desmarca "Leído", se puede devolver el progreso al estado anterior
       book.pagesRead = Math.min(book.pagesRead, book.totalPages);
       book.percentage = (book.pagesRead / book.totalPages) * 100;
     }
-    this.bookProgressService.saveProgress(book); // Usa saveProgress en lugar de updateProgress
+    this.bookProgressService.saveProgress(book);
   }
 
-  // Redirige a la página de edición para cambiar el progreso del libro
   editarProgreso(book: any) {
     this.router.navigate(['/edit-progress', book.bookTitle]);
   }
-  
+
   eliminarLibro(bookTitle: string) {
     this.bookProgressService.deleteBook(bookTitle);
-    this.obtenerLibros(); // Refresca la lista de libros
+    this.obtenerLibros();
   }
+
+  irAAgregarLibro() {
+    this.router.navigate(['/bookprogress']);
+  }
+
+  irAProgreso() {
+    console.log('Ver progreso de libros');
+  }
+
 }

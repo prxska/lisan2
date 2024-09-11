@@ -7,11 +7,21 @@
   
   ion-card {
     width: 100%;
-    max-width: 400px; // Ajusta este valor según tus necesidades
+    max-width: 400px; 
   }
   
   @media (min-width: 768px) {
     ion-card {
       width: 50%;
     }
+  }
+
+  ion-button h4 {
+    font-family: -apple-system, BlinkMacSystemFont, "San Francisco", Roboto, "Segoe UI", Arial, sans-serif;
+    font-size: 17px; 
+    font-weight: 400; 
+  }
+ion-card-title  {
+  font-family: -apple-system, BlinkMacSystemFont, "San Francisco", Roboto, "Segoe UI", Arial, sans-serif;
+
   }

@@ -37,28 +37,32 @@ export class BookprogressPage implements OnInit {
       await alert.present();
       return;
     }
-
+  
     const formData = this.bookProgressForm.value;
     this.bookProgressService.saveProgress(formData);
     this.bookTitle = formData.bookTitle;
-
+  
     if (formData.totalPages > 0) {
       this.percentage = (formData.pagesRead / formData.totalPages) * 100;
     } else {
       this.percentage = 0;
     }
-
-    // Mostrar alerta de éxito
+  
+    // Mostrar alerta de éxito personalizada
     const successAlert = await this.alertController.create({
+      cssClass: 'custom-alert',
       header: 'Éxito',
       message: 'Progreso guardado exitosamente',
-      buttons: ['Aceptar']
+      buttons: [{
+        text: 'Aceptar',
+        cssClass: 'custom-alert-button'
+      }]
     });
     await successAlert.present();
-
+  
     // Limpiar el formulario
     this.bookProgressForm.reset();
-    this.percentage = null; // Resetear el porcentaje
+    this.percentage = null;
   }
 }
   	

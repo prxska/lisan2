@@ -6,7 +6,7 @@ import {
   FormBuilder
 } from '@angular/forms';
 import { AlertController } from '@ionic/angular';
-import { Router } from '@angular/router';  // Importamos Router
+import { Router } from '@angular/router';  // traemos al Router para su a posteriori uso 
 
 @Component({
   selector: 'app-login',
@@ -20,7 +20,7 @@ export class LoginPage implements OnInit {
   constructor(
     public fb: FormBuilder,
     public alertController: AlertController,
-    private router: Router  // Inyectamos Router
+    private router: Router  // se usa aqui la inyeccion de router
   ) { 
     this.formularioLogin = this.fb.group({
       'nombre': new FormControl("", Validators.required),
@@ -50,7 +50,7 @@ export class LoginPage implements OnInit {
   
     if (usuario && usuario.nombre === f.nombre && usuario.password === f.password) {
       console.log('Ingresado');
-      // Guardamos el usuario en localStorage
+      // con esto el localstorage lo recordara.
       localStorage.setItem('usuario', JSON.stringify({ nombre: f.nombre, password: f.password }));
       this.router.navigate(['/inicio']);
     } else {

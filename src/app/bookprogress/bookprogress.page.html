@@ -3,26 +3,26 @@
   <ion-buttons slot="start">
     <ion-back-button></ion-back-button>
   </ion-buttons>
-    <ion-title>Agregar Progreso del Libro</ion-title>
+    <ion-title>Progreso de tus libros</ion-title>
 </ion-header>
 
   
-<ion-content [fullscreen]="true" class="ion-padding">
+<ion-content class="ion-padding" [fullscreen]="true" >
   <div class="center-content">
   <form [formGroup]="bookProgressForm" (ngSubmit)="onSubmit()">
     <ion-item>
-      <ion-label class="label">Título</ion-label>
+      <ion-label class="label"><h3>Título</h3></ion-label>
       <ion-input formControlName="bookTitle"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label class="label">Páginas Totales</ion-label>
+      <ion-label class="label"><h3>Total páginas</h3></ion-label>
       <ion-input formControlName="totalPages" type="number"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label class="label">Página actual </ion-label>
+      <ion-label class="label"><h3>Página actual</h3></ion-label>
       <ion-input formControlName="pagesRead" type="number"></ion-input>
     </ion-item>
-    <ion-button expand="full" type="submit">Guardar Progreso</ion-button>
+    <ion-button expand="full" type="submit">Guardar</ion-button>
   </form>
 </div>
   <ion-card *ngIf="percentage !== null">

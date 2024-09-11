@@ -2,14 +2,14 @@
   <ion-buttons slot="start">
     <ion-back-button></ion-back-button>
   </ion-buttons>
-    <ion-title>Agregar Progreso del Libro</ion-title>
+    <ion-title>Edita tu progreso</ion-title>
 </ion-header>
-<ion-content [fullscreen]="true">
+<ion-content [fullscreen]="true" class="center-content">
   <form [formGroup]="bookProgressForm" (ngSubmit)="onSubmit()">
     <ion-item>
-      <ion-label>Páginas Leídas</ion-label>
+      <ion-label><h3>Páginas leídas</h3></ion-label>
       <ion-input formControlName="pagesRead" type="number"></ion-input>
     </ion-item>
-    <ion-button expand="full" type="submit">Guardar Progreso</ion-button>
+    <ion-button expand="full" type="submit">Guardar</ion-button>
   </form>
 </ion-content>

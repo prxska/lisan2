@@ -1,30 +1,77 @@
 .progress-bar {
     width: 100%;
-    background-color: #e0e0e0; /* Color de fondo de la barra vacía */
+    background-color: #e0e0e0; 
     border-radius: 8px;
-    overflow: hidden; /* Para evitar que el contenido de la barra desborde los bordes */
+    overflow: hidden; 
   }
   
   .progress {
-    height: 20px; /* Altura de la barra de progreso */
-    background-color: #3f64b3; /* Color de la barra de progreso */
-    border-radius: 8px 0 0 8px; /* Bordes redondeados solo en el lado izquierdo */
-    transition: width 0.5s ease-in-out; /* Transición suave de la anchura */
-    width: 0; /* Empieza desde 0, y el ancho se establecerá dinámicamente */
+    height: 20px; 
+    background-color: #3f64b3; 
+    border-radius: 8px 0 0 8px; 
+    transition: width 0.5s ease-in-out; 
+    width: 0; 
   }
   
   .center-button {
     padding-top: 50px;
     display: flex;
-    justify-content: center; /* Centra el contenido horizontalmente */
-    align-items: center;     /* Centra el contenido verticalmente */
+    justify-content: center; 
+    align-items: center;         
     height: 100%; 
   }
 
   .bars {
     
-    justify-content: center; /* Centra el contenido horizontalmente */
-    align-items: center;     /* Centra el contenido verticalmente */
+    justify-content: center; 
+    align-items: center;     
+    height: 100px;
+
+  }
+
+  .ios-look {
+    
+ 
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  }
+
+  .ios-fab {
+    
+    color: var(--ion-color-primary);
+    --ion-box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .ios-fab-button {
+    --background: var(--ion-color-light);
+    color: var(--ion-color-primary);
+  }
+
+  .ios-button {
+    border-radius: 22px;
+    font-size: 16px;
+  }
+
+  
 
 
+  .icon-container {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .base-icon {
+    font-size: 24px; /* Tamaño del ícono base */
+  }
+  
+  .overlay-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 16px; /* Tamaño del ícono superpuesto */
+  }
+
+ion-title {
+  font-size: 40px;
+    font-family: -apple-system, BlinkMacSystemFont, "San Francisco", Roboto, "Segoe UI", Arial, sans-serif;
   }

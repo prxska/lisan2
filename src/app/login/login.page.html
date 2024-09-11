@@ -4,16 +4,18 @@
   <div class="center-content">
     <ion-card>
       <ion-card-header>
-        <ion-card-title>Iniciar sesion</ion-card-title>
+        <ion-card-title>Bienvenido</ion-card-title>
       </ion-card-header>
       <ion-card-content>
         <form [formGroup]="formularioLogin">
           <ion-item>
-            <ion-label position="floating">Nombre</ion-label>
+            <ion-label position="floating"><h2>Usuario</h2></ion-label>
+            <br>
             <ion-input formControlName="nombre"></ion-input>
           </ion-item>
           <ion-item>
-            <ion-label position="floating">Contraseña</ion-label>
+            <ion-label position="floating"><h2>Contraseña</h2></ion-label>
+            <br>
             <ion-input [type]="showPassword ? 'text' : 'password'" formControlName="password" type="password" ></ion-input>
             <ion-icon slot="end" [name]="showPassword ? 'eye-off' : 'eye'" (click)="togglePasswordVisibility()"></ion-icon>
           </ion-item>
@@ -30,7 +32,7 @@
 <ion-footer>
   <ion-toolbar color="primary">
     <ion-buttons slot="end">
-      <ion-button [routerLink]="['/registro']">Registrarse</ion-button>
+      <ion-button [routerLink]="['/registro']"><h4>Registrarse</h4></ion-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-footer>

@@ -1,0 +1,36 @@
+
+ion-content form{ 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%; 
+    text-align: center; 
+}
+
+ion-item {
+    width: 100%; 
+    max-width: 500px; 
+  }
+  
+ion-content, form, ion-button {
+    margin-top: 20px;
+    size: 49px;
+  }
+
+  form h3 {
+    padding-right: 15px;
+    font-size: 15px;
+    font-weight: 30px;
+    font-family: -apple-system, BlinkMacSystemFont, "San Francisco", Roboto, "Segoe UI", Arial, sans-serif;
+  }
+
+
+ form ,ion-item, ion-input {
+    --border-color: transparent;
+    --box-shadow: none; 
+  }
+
+  ion-title {
+    font-family: -apple-system, BlinkMacSystemFont, "San Francisco", Roboto, "Segoe UI", Arial, sans-serif;
+  }
