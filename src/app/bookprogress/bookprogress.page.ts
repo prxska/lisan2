@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { BookProgressService } from '../book-progress.service'; // Ajusta la ruta según sea necesario
+import { BookProgressService } from '../book-progress.service'; 
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-bookprogress',
@@ -12,7 +13,11 @@ export class BookprogressPage implements OnInit {
   percentage: number | null = null;
   bookTitle: string | null = null;
 
-  constructor(private fb: FormBuilder, private bookProgressService: BookProgressService) {
+  constructor(
+    private fb: FormBuilder, 
+    private bookProgressService: BookProgressService,
+    public alertController: AlertController
+  ) {
     this.bookProgressForm = this.fb.group({
       bookTitle: ['', Validators.required],
       totalPages: [null, [Validators.required, Validators.min(1)]],
@@ -22,16 +27,38 @@ export class BookprogressPage implements OnInit {
 
   ngOnInit() {}
 
-  onSubmit() {
-    if (this.bookProgressForm.valid) {
-      const formData = this.bookProgressForm.value;
-      this.bookProgressService.saveProgress(formData);
-      this.bookTitle = formData.bookTitle;
-      if (formData.totalPages > 0) {
-        this.percentage = (formData.pagesRead / formData.totalPages) * 100;
-      } else {
-        this.percentage = 0;
-      }
+  async onSubmit() {
+    if (this.bookProgressForm.invalid) {
+      const alert = await this.alertController.create({
+        header: 'Datos incompletos',
+        message: 'Por favor completa todos los campos.',
+        buttons: ['Aceptar']
+      });
+      await alert.present();
+      return;
     }
+
+    const formData = this.bookProgressForm.value;
+    this.bookProgressService.saveProgress(formData);
+    this.bookTitle = formData.bookTitle;
+
+    if (formData.totalPages > 0) {
+      this.percentage = (formData.pagesRead / formData.totalPages) * 100;
+    } else {
+      this.percentage = 0;
+    }
+
+    // Mostrar alerta de éxito
+    const successAlert = await this.alertController.create({
+      header: 'Éxito',
+      message: 'Progreso guardado exitosamente',
+      buttons: ['Aceptar']
+    });
+    await successAlert.present();
+
+    // Limpiar el formulario
+    this.bookProgressForm.reset();
+    this.percentage = null; // Resetear el porcentaje
   }
 }
+  	

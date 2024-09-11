@@ -14,7 +14,7 @@ import { Router } from '@angular/router';  // Importamos Router
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit {
-
+  showPassword: boolean = false;
   formularioLogin: FormGroup;
 
   constructor(
@@ -27,6 +27,10 @@ export class LoginPage implements OnInit {
       'password': new FormControl("", Validators.required)
     });
   }
+  togglePasswordVisibility() {
+    this.showPassword = !this.showPassword;
+  }
+  
 
   ngOnInit() {}
 

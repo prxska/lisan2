@@ -1,13 +1,13 @@
 body {
-    /* Para navegadores basados en WebKit (Chrome, Safari, etc.) */
+    
     ::-webkit-scrollbar {
       display: none;
     }
     
-    /* Para Firefox */
+   
     scrollbar-width: none;
     
-    /* Para IE y Edge */
+  
     -ms-overflow-style: none;
   }
 .center-content {
@@ -25,7 +25,7 @@ body {
 
   ion-card {
     width: 100%;
-    max-width: 400px; // Ajusta este valor según tus necesidades
+    max-width: 400px; 
   }
   
   @media (min-width: 768px) {
