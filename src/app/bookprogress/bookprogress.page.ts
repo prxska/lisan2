@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { BookProgressService } from '../book-progress.service'; 
 import { AlertController } from '@ionic/angular';
+import { ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-bookprogress',
@@ -16,7 +17,9 @@ export class BookprogressPage implements OnInit {
   constructor(
     private fb: FormBuilder, 
     private bookProgressService: BookProgressService,
-    public alertController: AlertController
+    public alertController: AlertController,
+    private route: ActivatedRoute,
+    private router: Router
   ) {
     this.bookProgressForm = this.fb.group({
       bookTitle: ['', Validators.required],
@@ -59,8 +62,10 @@ export class BookprogressPage implements OnInit {
       message: 'Progreso guardado exitosamente',
       buttons: [{
         text: 'Aceptar',
-        cssClass: 'custom-alert-button'
-      }]
+        cssClass: 'custom-alert-button',
+        handler: () => {
+          this.router.navigate(['/inicio']);
+        }}]
     });
     await successAlert.present();
   
