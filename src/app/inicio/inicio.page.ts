@@ -38,6 +38,12 @@ export class InicioPage {
     console.log('Libros obtenidos:', this.books);
   }
 
+
+  navigateToLogin() {
+    this.router.navigate(['/login']);
+    
+  }
+
   toggleRead(book: any) {
     if (book.read) {
       book.pagesRead = book.totalPages;

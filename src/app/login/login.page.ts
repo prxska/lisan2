@@ -32,7 +32,10 @@ export class LoginPage implements OnInit {
   }
   
 
-  ngOnInit() {}
+  ngOnInit() {
+    // aqui se limpiara el formulario cada vez que se limpiara
+    this.formularioLogin.reset();
+  }
 
   async ingresar() {
     const f = this.formularioLogin.value;

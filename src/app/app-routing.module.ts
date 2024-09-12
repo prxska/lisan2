@@ -27,6 +27,10 @@ const routes: Routes = [
     path: 'edit-progress/:bookTitle',
     loadChildren: () => import('./edit-progress/edit-progress.module').then(m => m.EditProgressPageModule)
   },
+  {
+    path: 'resetpass',
+    loadChildren: () => import('./resetpass/resetpass.module').then( m => m.ResetpassPageModule)
+  },
 ];
 
 

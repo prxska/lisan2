@@ -44,8 +44,19 @@ ion-item, ion-input{
   --overflow: hidden;
 }
 
-h2 {
-  font-size: 15px;
-  font-style: italic;
+.custom-border-button{
+    display:flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+}  
+  ion-button:hover {
+    --background: #31d1e0; /* Cambia el color de fondo del botón en hover */
+  }
+  /* resetpass.page.scss */
 
-}
+  h2 {
+    font-size: 15px;
+  font-style: italic;
+  
+  }

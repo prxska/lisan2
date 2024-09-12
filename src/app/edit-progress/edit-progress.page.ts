@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router} from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { BookProgressService } from '../book-progress.service';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-edit-progress',
@@ -15,7 +16,9 @@ export class EditProgressPage implements OnInit {
   constructor(
     private fb: FormBuilder,
     private bookProgressService: BookProgressService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private  router: Router,
+    private alertController: AlertController
   ) {
     this.bookProgressForm = this.fb.group({
       pagesRead: [null, [Validators.required, Validators.min(0)]]
@@ -32,12 +35,23 @@ export class EditProgressPage implements OnInit {
     }
   }
 
-  onSubmit() {
+  async onSubmit() {
     if (this.bookProgressForm.valid) {
       const updatedPagesRead = this.bookProgressForm.value.pagesRead;
       this.book.pagesRead = updatedPagesRead;
       this.book.percentage = (updatedPagesRead / this.book.totalPages) * 100;
       this.bookProgressService.saveProgress(this.book);
+      
+      const alert = await this.alertController.create({
+        header: 'Éxito',
+        message: 'El progreso ha sido actualizado.',
+        buttons: [{
+          text: 'Aceptar',
+        handler: () => {
+          this.router.navigate(['/inicio']);
+        }}]
+      });
+      await alert.present();
     }
   }
 }

@@ -19,9 +19,23 @@
   ion-button h4 {
     font-family: -apple-system, BlinkMacSystemFont, "San Francisco", Roboto, "Segoe UI", Arial, sans-serif;
     font-size: 17px; 
-    font-weight: 400; 
+    font-weight: 400;
+    justify-content: center;
+    text-align: center;
+     
   }
 ion-card-title  {
   font-family: -apple-system, BlinkMacSystemFont, "San Francisco", Roboto, "Segoe UI", Arial, sans-serif;
 
   }
+
+  ion-item , ion-input{
+    --border-color: transparent;
+    --box-shadow: none; 
+    --overflow: hidden;
+  }
+
+ion-label, small {
+font-size: 10px;
+font-style: italic;
+}

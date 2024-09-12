@@ -53,7 +53,6 @@
 
   
 
-
   .icon-container {
     position: relative;
     display: inline-block;
@@ -75,3 +74,16 @@ ion-title {
   font-size: 40px;
     font-family: -apple-system, BlinkMacSystemFont, "San Francisco", Roboto, "Segoe UI", Arial, sans-serif;
   }
+
+div , ion-card, ion-card-header, ion-button , ion-icon{
+
+  justify-content: center;
+  text-align: center;
+}
+
+ion-item, ion-checkbox {
+  --border-color: transparent;
+  --box-shadow: none; 
+  --overflow: hidden;
+  
+}

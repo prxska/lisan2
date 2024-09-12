@@ -24,6 +24,11 @@
         <ion-button expand="block" (click)="ingresar()">
           <strong>Ingresar</strong>
         </ion-button>
+        <div>
+          <ion-item>
+            <ion-label><small [routerLink]="['/resetpass']">Olvidaste tu contraseña?</small></ion-label>
+          </ion-item>
+        </div>
       </ion-card-content>
     </ion-card>
   </div>
@@ -32,7 +37,7 @@
 <ion-footer>
   <ion-toolbar color="primary">
     <ion-buttons slot="end">
-      <ion-button [routerLink]="['/registro']"><h4>Registrarse</h4></ion-button>
+      <ion-button [routerLink]="['/registro']"><h4><strong>Registrarse</strong></h4></ion-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-footer>

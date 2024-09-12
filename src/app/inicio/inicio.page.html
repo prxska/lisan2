@@ -12,7 +12,7 @@
     </ion-fab-button>
 
     <ion-fab-list side="bottom">
-      <ion-fab-button color="light" class="ios-fab-button" [routerLink]="['/login']" >
+      <ion-fab-button color="light" class="ios-fab-button" (click)="navigateToLogin()">
         <ion-icon name="log-out-outline"></ion-icon> 
       </ion-fab-button>
     </ion-fab-list>
@@ -36,25 +36,23 @@
           <div *ngFor="let book of books">
             <h2 class="ios-h3">{{ book.bookTitle }}</h2>
             <p class="ios-p">Progreso: {{ book.percentage | number: '1.0-2' }}%</p>
-            
-      
+                  
             <div class="progress-bar">
               <div class="progress" [style.width]="book.percentage + '%'"></div>
             </div>
 
-  
             <ion-item class="checkbox">
               <ion-label>Leído</ion-label>
               <ion-checkbox [(ngModel)]="book.read" (ionChange)="toggleRead(book)"></ion-checkbox>
             </ion-item>
 
             <ion-button fill="outline" color="secondary" (click)="editarProgreso(book)" class="ios-button">
-              Editar
+              <ion-icon  name="pencil-outline"></ion-icon> 
             </ion-button>
 
-         
             <ion-button fill="outline" color="danger" (click)="eliminarLibro(book.bookTitle)" class="ios-button">
-              Eliminar
+              <ion-icon  name="trash-outline"></ion-icon>
+      
             </ion-button>
           </div>
         </ion-card-header>

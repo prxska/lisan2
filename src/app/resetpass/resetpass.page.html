@@ -1,0 +1,58 @@
+<ion-header>
+  <ion-buttons slot="start">
+    <ion-back-button></ion-back-button>
+  </ion-buttons>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="center-content">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Restablecer Contraseña</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <form [formGroup]="resetPasswordForm" (ngSubmit)="resetPassword()">
+          <ion-item>
+            <ion-label position="floating"><h2>Usuario</h2></ion-label>
+            <br />
+            <ion-input formControlName="nombre"></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label position="floating"><h2>Nueva Contraseña</h2></ion-label>
+            <br />
+            <ion-input
+              [type]="showPassword ? 'text' : 'password'"
+              formControlName="newPassword"
+            ></ion-input>
+            <ion-icon
+              slot="end"
+              name="eye"
+              *ngIf="!showPassword"
+              (click)="togglePasswordVisibility()"
+            ></ion-icon>
+            <ion-icon
+              slot="end"
+              name="eye-off"
+              *ngIf="showPassword"
+              (click)="togglePasswordVisibility()"
+            ></ion-icon>
+          </ion-item>
+
+          <ion-item>
+            <ion-label position="floating"><h2>Confirmar Contraseña</h2></ion-label>
+            <br />
+            <ion-input
+              [type]="showPassword ? 'text' : 'password'"
+              formControlName="confirmPassword"
+            ></ion-input>
+          </ion-item>
+
+          <ion-button class="custom-border-button" type="submit"
+            ><h4><strong>Restablecer Contraseña</strong></h4></ion-button
+          >
+        </form>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>

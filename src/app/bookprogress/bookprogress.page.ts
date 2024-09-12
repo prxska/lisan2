@@ -32,12 +32,16 @@ export class BookprogressPage implements OnInit {
       const alert = await this.alertController.create({
         header: 'Datos incompletos',
         message: 'Por favor completa todos los campos.',
-        buttons: ['Aceptar']
+        buttons: [{
+          text: 'Aceptar',
+          cssClass: 'custom-alert-button' // Clase personalizada para el botón
+        }],
+        cssClass: 'custom-alert' // Clase personalizada para el alert completo
       });
       await alert.present();
       return;
     }
-  
+    
     const formData = this.bookProgressForm.value;
     this.bookProgressService.saveProgress(formData);
     this.bookTitle = formData.bookTitle;
