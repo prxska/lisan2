@@ -18,6 +18,10 @@ body {
     --overflow: hidden;
   }
   
+ion-input{
+  background-color: #c0bfbf21;
+}
+
   ion-content.center-content::part(scroll) {
     display: block; 
     overflow-y: hidden;

@@ -10,9 +10,12 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { Storage } from '@ionic/storage-angular';
 import { IonicStorageModule } from '@ionic/storage-angular';
 
+import { HttpClientModule } from '@angular/common/http';
+
 @NgModule({
   declarations: [AppComponent],
   imports: [
+    HttpClientModule,
     BrowserModule,
     IonicModule.forRoot(),
     AppRoutingModule,

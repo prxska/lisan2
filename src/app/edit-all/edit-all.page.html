@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-buttons slot="start">
+    <ion-back-button></ion-back-button>
+  </ion-buttons>
+  <ion-title>Tus libros</ion-title>
+</ion-header>
+
+<ion-content>
+  <div class="bars">
+    <ion-card *ngIf="books.length > 0" class="ios-card">
+      <ion-card-header>
+        <div *ngFor="let book of books">
+          <h2 class="ios-h3">{{ book.bookTitle }}</h2>
+          <p class="ios-p">Progreso: {{ book.percentage | number: '1.0-2' }}%</p>
+
+          <div class="progress-bar">
+            <div class="progress" [style.width]="book.percentage + '%'"></div>
+          </div>
+          <ion-item class="checkbox">
+            <ion-label>Leído</ion-label>
+            <ion-checkbox [(ngModel)]="book.read" (ionChange)="toggleRead(book)"></ion-checkbox>
+          </ion-item>
+
+          <ion-button fill="outline" color="secondary" (click)="editarProgreso(book)" class="ios-button">
+            <ion-icon  name="pencil-outline"></ion-icon> 
+          </ion-button>
+
+          <ion-button fill="outline" color="danger" (click)="eliminarLibro(book.bookTitle)" class="ios-button">
+            <ion-icon  name="trash-outline"></ion-icon>
+    
+          </ion-button>
+        </div>
+      </ion-card-header>
+    </ion-card>
+  </div>
+
+  <div *ngIf="books.length === 0">
+    <p class="ios-p">No hay libros registrados aún.</p>
+  </div>
+</ion-content>

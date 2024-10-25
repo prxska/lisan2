@@ -25,7 +25,10 @@ ion-content, form, ion-button {
     font-family: -apple-system, BlinkMacSystemFont, "San Francisco", Roboto, "Segoe UI", Arial, sans-serif;
   }
 
-
+  ion-input{
+    background-color: #c0bfbf21;
+  }
+  
  form ,ion-item, ion-input {
     --border-color: transparent;
     --box-shadow: none; 

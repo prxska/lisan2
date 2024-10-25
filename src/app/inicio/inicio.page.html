@@ -1,3 +1,4 @@
+<!-- inicio.page.html -->
 <ion-content [fullscreen]="true" class="ion-padding ios-look">
   <ion-header collapse="condense">
     <ion-toolbar>
@@ -5,15 +6,14 @@
     </ion-toolbar>
   </ion-header>
 
-
   <ion-fab vertical="top" horizontal="end" slot="fixed">
     <ion-fab-button class="ios-fab">
-      <ion-icon name="ellipsis-horizontal-outline"></ion-icon> 
+      <ion-icon name="ellipsis-horizontal-outline"></ion-icon>
     </ion-fab-button>
 
     <ion-fab-list side="bottom">
       <ion-fab-button color="light" class="ios-fab-button" (click)="navigateToLogin()">
-        <ion-icon name="log-out-outline"></ion-icon> 
+        <ion-icon name="log-out-outline"></ion-icon>
       </ion-fab-button>
     </ion-fab-list>
   </ion-fab>
@@ -21,47 +21,48 @@
   <div *ngIf="nombreUsuario">
     <h2 class="ios-h2">Hola {{ nombreUsuario }}, es bueno verte</h2>
 
-  
     <div class="center-button">
-      <ion-button [routerLink]="['/bookprogress']" fill="solid" color="primary" shape="round" class="ios-button">
-        <ion-icon name="add-outline" class="combined-icon"></ion-icon>
-        <ion-icon name="book-outline" class="combined-icon"></ion-icon>
-     
-      </ion-button>
-    </div>
 
+    </div>
+    
     <div class="bars">
       <ion-card *ngIf="books.length > 0" class="ios-card">
         <ion-card-header>
           <div *ngFor="let book of books">
             <h2 class="ios-h3">{{ book.bookTitle }}</h2>
             <p class="ios-p">Progreso: {{ book.percentage | number: '1.0-2' }}%</p>
-                  
+
             <div class="progress-bar">
               <div class="progress" [style.width]="book.percentage + '%'"></div>
             </div>
-
-            <ion-item class="checkbox">
-              <ion-label>Leído</ion-label>
-              <ion-checkbox [(ngModel)]="book.read" (ionChange)="toggleRead(book)"></ion-checkbox>
-            </ion-item>
-
-            <ion-button fill="outline" color="secondary" (click)="editarProgreso(book)" class="ios-button">
-              <ion-icon  name="pencil-outline"></ion-icon> 
-            </ion-button>
-
-            <ion-button fill="outline" color="danger" (click)="eliminarLibro(book.bookTitle)" class="ios-button">
-              <ion-icon  name="trash-outline"></ion-icon>
-      
-            </ion-button>
           </div>
         </ion-card-header>
       </ion-card>
     </div>
 
-    <!-- libros no registrados -->
     <div *ngIf="books.length === 0">
       <p class="ios-p">No hay libros registrados aún.</p>
     </div>
   </div>
 </ion-content>
+
+<ion-tabs>
+  <ion-tab-bar slot="bottom">
+    <ion-tab-button (click)="edit()">
+      <ion-icon name="pencil-outline"></ion-icon>
+      <ion-label>Editar libros</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button (click)="goToBookProgress()">
+      <ion-icon name="add-circle-outline"></ion-icon>
+      <ion-label>Agregar</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button (click)="goToLookFor()">
+      <ion-icon name="search-outline"></ion-icon>
+      <ion-label>Buscar</ion-label>
+    </ion-tab-button>
+
+
+  </ion-tab-bar>
+</ion-tabs>

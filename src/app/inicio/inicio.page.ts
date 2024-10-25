@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { BookProgressService } from '../book-progress.service';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-inicio',
@@ -11,7 +12,11 @@ export class InicioPage {
   nombreUsuario: string = '';
   books: any[] = [];
 
-  constructor(private bookProgressService: BookProgressService, private router: Router) {}
+  constructor(
+    private bookProgressService: BookProgressService, 
+    private router: Router,
+    private alertController: AlertController
+  ) {}
 
   ionViewWillEnter() {
     this.obtenerNombreUsuario();
@@ -23,7 +28,7 @@ export class InicioPage {
     if (storedValue) {
       try {
         const usuario = JSON.parse(storedValue);
-        this.nombreUsuario = usuario.nombre;
+        this.nombreUsuario = usuario.nombre;  // Obtiene el nombre del usuario del localStorage
       } catch (error) {
         console.error('Error al analizar JSON de localStorage:', error);
       }
@@ -38,12 +43,11 @@ export class InicioPage {
     console.log('Libros obtenidos:', this.books);
   }
 
-
   navigateToLogin() {
-    this.router.navigate(['/login']);
-    
+    localStorage.removeItem('usuario'); // Da la orden de borrar al usuario automaticamente al salir 
+    this.router.navigate(['/login']); // Redirige al login
   }
-
+  
   toggleRead(book: any) {
     if (book.read) {
       book.pagesRead = book.totalPages;
@@ -64,12 +68,18 @@ export class InicioPage {
     this.obtenerLibros();
   }
 
-  irAAgregarLibro() {
+  // Métodos de navegación para el tab bar
+  edit() {
+    this.router.navigate(['/edit-all']);
+  }
+
+  goToBookProgress() {
     this.router.navigate(['/bookprogress']);
   }
 
-  irAProgreso() {
-    console.log('Ver progreso de libros');
+  goToLookFor() {
+    this.router.navigate(['/lookfor']);
   }
+
 
 }

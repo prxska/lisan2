@@ -33,8 +33,12 @@ export class LoginPage implements OnInit {
   
 
   ngOnInit() {
-    // aqui se limpiara el formulario cada vez que se limpiara
     this.formularioLogin.reset();
+    const storedValue = localStorage.getItem('usuario');
+    if (storedValue) {
+      // Redirigir directamente a la página de inicio si el usuario ya está registrado
+      this.router.navigate(['/inicio']);
+    }
   }
 
   async ingresar() {

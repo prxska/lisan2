@@ -13,7 +13,7 @@ export class ResetpassPage implements OnInit {
 
   constructor(private fb: FormBuilder, private alertController: AlertController) {
     this.resetPasswordForm = this.fb.group({
-      nombre: ['', Validators.required], // Campo para nombre de usuario
+      nombre: ['', Validators.required],
       newPassword: ['', Validators.required],
       confirmPassword: ['', Validators.required],
     });
@@ -48,14 +48,11 @@ export class ResetpassPage implements OnInit {
       return;
     }
 
-    // se trabajara con la misma logica de variables que se usa para registrar a un usuario
-    // se puede usar el servicio de autenticacion para resetear la contraseña
-
     const storedUserString = localStorage.getItem('usuario');
     if (storedUserString) {
       const storedUser = JSON.parse(storedUserString);
       if (storedUser && storedUser.nombre === formData.nombre) {
-        // aqui pasara la nueva contrasenia asignada a tomar lugar en el array 
+        
         storedUser.password = formData.newPassword;
         localStorage.setItem('usuario', JSON.stringify(storedUser));
 
@@ -67,6 +64,8 @@ export class ResetpassPage implements OnInit {
         console.log('Usuario actualizado:', localStorage.getItem('usuario'));
         console.log('Datos del formulario:', formData);
         await alert.present();
+
+        this.resetPasswordForm.reset();
       } else {
         const alert = await this.alertController.create({
           header: 'Error',
@@ -83,8 +82,6 @@ export class ResetpassPage implements OnInit {
       });
       await alert.present();
     }
+}
 
-    // aqui se limpia los input
-    this.resetPasswordForm.reset();
-  }
 }
