@@ -14,6 +14,12 @@ import { Router } from '@angular/router';  // traemos al Router para su a poster
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit {
+  loginMessage(loginMessage: any) {
+    throw new Error('Method not implemented.');
+  }
+  login() {
+    throw new Error('Method not implemented.');
+  }
   showPassword: boolean = false;
   formularioLogin: FormGroup;
 
@@ -71,3 +77,5 @@ export class LoginPage implements OnInit {
     }
   }
 }
+
+

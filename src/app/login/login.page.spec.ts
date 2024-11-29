@@ -5,10 +5,10 @@ import { of } from 'rxjs';
 
 import { AuthService } from '../auth.service';
 
-// Mock del servicio AuthService
+
 class MockAuthService {
   login() {
-    return of(true);  // Simula un inicio de sesión exitoso
+    return of(true);  
   }
 }
 
@@ -29,8 +29,8 @@ describe('LoginPage', () => {
 
     fixture = TestBed.createComponent(LoginPage);
     component = fixture.componentInstance;
-    AuthService = TestBed.inject(AuthService);  // Obtener instancia del servicio mockeado
-    router = TestBed.inject(Router);  // Obtener instancia del router mockeado
+    AuthService = TestBed.inject(AuthService);  
+    router = TestBed.inject(Router);  
     fixture.detectChanges();
   });
 
@@ -39,12 +39,12 @@ describe('LoginPage', () => {
   });
 
   it('should display "Inicia sesión exitosamente" when login is successful', () => {
-    // Simula la acción de login
-    component.login();  // Asegúrate de que el método login esté invocado correctamente
-    fixture.detectChanges();  // Detecta los cambios
+    
+    component.login();  
+    fixture.detectChanges();  
 
-    // Verifica que el mensaje de inicio de sesión exitoso sea el esperado
+    
     expect(component.loginMessage).toBe('Inicia sesión exitosamente');
-    expect(router.navigate).toHaveBeenCalledWith(['/home']);  // Verifica si la navegación al home ocurrió
+    expect(router.navigate).toHaveBeenCalledWith(['/home']);  
   });
 });
