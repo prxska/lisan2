@@ -1,6 +1,6 @@
-# Instalación de TraiToTrail
+# Instalación de Trail
 
-Para instalar y correr el proyecto **TraiToTrail**, sigue estos pasos:
+Para instalar y correr el proyecto **Trail**, sigue estos pasos:
 
 1. **Clonar el repositorio**:
    ```bash
