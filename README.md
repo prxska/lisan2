@@ -17,3 +17,5 @@ Testing Karma
 ![karma](https://github.com/user-attachments/assets/e383607f-8357-4bfd-8cee-745df464c15b)
 
 Puedes registrar tu progreso de tus libros sin problema, TtT apoya tu progreso. 
+
+ Creado por Amaro.
