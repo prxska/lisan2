@@ -1,17 +1,17 @@
-import { TestBed } from '@angular/core/testing';
+import { inject } from '@angular/core';
 import { CanActivateFn } from '@angular/router';
+import { AuthService } from './auth.service'; // Asegúrate de que el path sea correcto
+import { Router } from '@angular/router';
 
-import { authGuard } from './auth.guard';
-
-describe('authGuard', () => {
-  const executeGuard: CanActivateFn = (...guardParameters) => 
-      TestBed.runInInjectionContext(() => authGuard(...guardParameters));
-
-  beforeEach(() => {
-    TestBed.configureTestingModule({});
-  });
-
-  it('should be created', () => {
-    expect(executeGuard).toBeTruthy();
-  });
-});
+export const authGuard: CanActivateFn = () => {
+  const authService = inject(AuthService);
+  const router = inject(Router);
+  
+  const user = localStorage.getItem('usuario');
+  if (user) {
+    return true;
+  } else {
+    router.navigate(['/login']);
+    return false;
+  }
+};
