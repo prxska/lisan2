@@ -27,11 +27,12 @@ Puedes registrar tu progreso de tus libros sin problema, TtT apoya tu progreso.
 https://landing-git-main-prxskas-projects.vercel.app/
 Puedes probar la aplicación aqui.
 
-![qrcode-generado](https://github.com/user-attachments/assets/c7b08fb7-42ef-42a9-b8ee-85e6c879622b)
+
+
 o tambien escaneando el QR
 
 ```
-
+![qrcode-generado](https://github.com/user-attachments/assets/bdbdb0ac-66dc-4eb7-a1d5-987787fb7400)
 
 
  Creado por Amaro.
