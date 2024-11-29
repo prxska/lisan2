@@ -11,8 +11,7 @@ Para instalar y correr el proyecto **Trail**, sigue estos pasos:
    ng serve
     # o si usas Ionic:
     ionic serve
-https://landing-git-main-prxskas-projects.vercel.app/
-Puedes probar la aplicación aqui.
+
 Testing Karma 
 
 ![karma](https://github.com/user-attachments/assets/e383607f-8357-4bfd-8cee-745df464c15b)
@@ -20,6 +19,18 @@ Testing Karma
 Puedes registrar tu progreso de tus libros sin problema, TtT apoya tu progreso. 
 
 
+
+
+
+
+```
+https://landing-git-main-prxskas-projects.vercel.app/
+Puedes probar la aplicación aqui.
+
+![qrcode-generado](https://github.com/user-attachments/assets/c7b08fb7-42ef-42a9-b8ee-85e6c879622b)
+o tambien escaneando el QR
+
+```
 
 
 
