@@ -15,6 +15,7 @@ Para instalar y correr el proyecto **Trail**, sigue estos pasos:
 Testing Karma 
 
 
+![karma](https://github.com/user-attachments/assets/769ad4d4-804e-4ba0-9224-d2b2452917fd)
 
 
 
