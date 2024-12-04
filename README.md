@@ -13,9 +13,9 @@ Para instalar y correr el proyecto **Trail**, sigue estos pasos:
     ionic serve
 
 Testing Karma 
+Se han adjuntado las pruebas principales
 
-
-![karma](https://github.com/user-attachments/assets/769ad4d4-804e-4ba0-9224-d2b2452917fd)
+![karma](https://github.com/user-attachments/assets/b73b7ae9-77d1-4153-b935-2d5f7ba70575)
 
 
 
